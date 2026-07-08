@@ -267,6 +267,42 @@ body { padding-top: var(--cg-strip-h); }
 .cg-colophon-note { margin: 4px 0 0; color: #9a9aa8; }
 @media (max-width: 640px) { .cg-strip-label { display: none; } }
 @media (prefers-reduced-motion: reduce) { .cg-skip { transition: none; } }
+
+/* ---- Mobile reading view (touch / small screens) ------------------------------------- */
+/* The immersive per-구 template is desktop-only. On touch devices and narrow screens the
+   .cg-read view is shown instead — it uses only safe, high-contrast CSS so text can never
+   go invisible on iOS Safari (no background-clip:text, backdrop-filter, 100vh, :hover-gated
+   reveals, or mix-blend-mode). Fully namespaced + generator-controlled. */
+.cg-read { display: none; }
+@media (hover: none) and (pointer: coarse), (max-width: 768px) {
+  /* Neutralise immersive templates that lock scrolling / lock the viewport on <body>. */
+  html, body { overflow-x: hidden !important; overflow-y: auto !important; height: auto !important;
+    min-height: 0 !important; position: static !important; touch-action: auto !important; background: #ffffff !important; }
+  .cg-immersive { display: none !important; }
+  .cg-read { display: block; }
+}
+.cg-read { max-width: 720px; margin: 0 auto; padding: 20px 18px 8px;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  color: #17171f; background: #ffffff; line-height: 1.75; -webkit-text-size-adjust: 100%; }
+.cg-read * { max-width: 100%; box-sizing: border-box; }
+.cg-read-head { padding: 8px 0 16px; border-bottom: 3px solid var(--cg-ra, #2d5bff); margin-bottom: 20px; }
+.cg-read-eyebrow { margin: 0 0 4px; color: var(--cg-rd, #333); font-weight: 700; font-size: 15px; letter-spacing: .02em; }
+.cg-read-head h1 { margin: 0; font-size: clamp(30px, 8vw, 40px); line-height: 1.15; color: #14141c; font-weight: 800; }
+.cg-read h2 { font-size: 20px; margin: 30px 0 10px; padding-left: 11px; color: #14141c; font-weight: 700;
+  border-left: 5px solid var(--cg-ra, #2d5bff); }
+.cg-read p { margin: 0 0 12px; font-size: 17px; color: #23232d; }
+.cg-read section { margin: 0; }
+.cg-read ul { margin: 8px 0 0; padding-left: 20px; }
+.cg-read li { margin: 8px 0; font-size: 16px; color: #23232d; }
+.cg-read li strong { color: #111119; font-weight: 700; }
+.cg-read .facts, .cg-read .symbols { list-style: none; padding: 14px 16px; margin: 8px 0 0;
+  background: #f5f6fa; border: 1px solid #e6e8f0; border-radius: 12px; }
+.cg-read .faq details { border: 1px solid #e6e8f0; border-radius: 10px; padding: 10px 14px; margin: 8px 0; background: #fbfbfd; }
+.cg-read .faq summary { cursor: pointer; font-weight: 700; font-size: 16px; color: #14141c; }
+.cg-read .faq details p { margin: 8px 0 2px; color: #44454f; }
+.cg-read a { color: #1a46d8; word-break: break-word; }
+.cg-read .sources { font-size: 14px; color: #55565f; }
+.cg-read .sources a { color: #3a5bd0; }
 </style>
 </head>
 <body>
@@ -275,6 +311,7 @@ body { padding-top: var(--cg-strip-h); }
     <span class="cg-ad">AD</span><span class="cg-strip-label">후원 파트너</span><span class="cg-strip-list"><a class="cg-strip-item" href="https://ikoffices.com" rel="sponsored noopener" target="_blank">일광오피스</a><span class="cg-strip-dot" aria-hidden="true">·</span><a class="cg-strip-item" href="https://mobidicsaju.com" rel="sponsored noopener" target="_blank">모비딕 사주</a><span class="cg-strip-dot" aria-hidden="true">·</span><a class="cg-strip-item" href="https://www.foodskorea.com/" rel="sponsored noopener" target="_blank">전국팔도 식품도감</a><span class="cg-strip-dot" aria-hidden="true">·</span><a class="cg-strip-item" href="https://myflowmakers.com" rel="sponsored noopener" target="_blank">마이플로우메이커스</a><span class="cg-strip-dot" aria-hidden="true">·</span><a class="cg-strip-item" href="https://yeonlijispace.com" rel="sponsored noopener" target="_blank">연리지 인테리어</a><span class="cg-strip-dot" aria-hidden="true">·</span><a class="cg-strip-item" href="https://yeonliji.io" rel="sponsored noopener" target="_blank">주식회사 연리지</a><span class="cg-strip-dot" aria-hidden="true">·</span><span class="cg-strip-item cg-strip-text">세무·법률 자문</span></span>
   </aside>
   <div id="cg-main" tabindex="-1"></div>
+  <div class="cg-immersive">
 <style>
   :root{
     --gunwi-yellow:#F4C430;
@@ -707,6 +744,132 @@ body { padding-top: var(--cg-strip-h); }
   }catch(e){ /* JSON absent or malformed — hero still renders */ }
 })();
 </script>
+  </div>
+  <main class="cg-read" id="cg-read" role="main" lang="ko" style="--cg-ra:#2b85ab;--cg-ra2:#394dd0;--cg-rd:#194457">
+    <header class="cg-read-head">
+      <p class="cg-read-eyebrow">대구광역시</p>
+      <h1>군위군</h1>
+    </header>
+    <div class="cg-read-body">
+      <section id="r-intro">
+        <h2>지역 소개</h2>
+        <p>군위군은 승려 일연이 《삼국유사》를 완성하고 입적한 인각사가 자리한 &#x27;삼국유사의 고장&#x27;으로 널리 알려진 대구광역시의 유일한 군(郡) 지역이다. 2023년 7월 1일 경상북도에서 대구광역시로 편입되며 대구의 최북단을 이루게 되었고, 군위읍을 중심으로 1읍 7면의 넓은 농촌형 행정구역을 유지하고 있다. 남동쪽으로는 해발 1,193m의 팔공산이 우뚝 솟아 있고 그 자락 절벽에는 &#x27;제2석굴암&#x27;으로 불려 온 국보 아미타여래삼존 석굴이 안치되어, 대구에서 유일한 국보를 품은 고장이 되었다. 1938년 문을 연 화본역과 부계면 대율리 한밤마을 돌담길, 영화 《리틀 포레스트》 촬영지 등 옛 정취가 살아 있는 명소가 많아 조용한 힐링 여행지로 사랑받는다. 사과와 자두를 비롯한 과수 농업이 발달한 청정 산간 지역이자, 대구경북통합신공항 건설과 삼국유사 체류형 관광거점 조성으로 새로운 전기를 맞고 있는 곳이다.</p>
+      </section>
+      <section id="r-facts">
+        <h2>주요 통계</h2>
+        <ul class="facts">
+          <li>인구: 약 23,515명 (2023)</li>
+          <li>면적: 614.31 km²</li>
+          <li>신설: 2023-07-01 (대구광역시 편입)</li>
+        </ul>
+      </section>
+      <section id="r-history">
+        <h2>역사</h2>
+        <p>군위 지역은 오랜 세월 효령현과 부계현·의흥군 등 여러 고을로 나뉘어 있다가, 1390년 효령현이 군위현으로 통합되고 부계현이 의흥군에 편입되며 오늘날 군의 뼈대가 갖추어졌다. 1914년 부군면 통폐합으로 의흥군이 군위군에 합쳐져 지금의 넓은 영역을 갖게 되었으며, 1979년 군위면이 군위읍으로 승격하면서 1읍 7면 체제가 확립되었다. 고려 후기 승려 일연이 삼국유사면 화북리의 인각사에 머무르며 《삼국유사》를 완성하고 이곳에서 입적하였기에, 군위는 예로부터 &#x27;삼국유사의 고장&#x27;이라는 정체성을 이어 왔다. 이러한 상징성을 살려 2021년에는 고로면의 이름을 삼국유사면으로 바꾸는 이례적인 지명 개편이 이루어지기도 하였다. 2023년 7월 1일에는 대구경북통합신공항을 의성군과 공동으로 유치하는 조건 아래 경상북도를 떠나 대구광역시에 편입되어, 광역시에 속한 유일한 군이라는 특별한 지위를 얻게 되었다. 이는 광역시로의 군(郡) 편입이라는 전국적으로 드문 사례로 지방행정사에 기록되었다.</p>
+      </section>
+      <section id="r-geography">
+        <h2>지리·자연환경</h2>
+        <p>군위군은 대구광역시의 최북단에 자리하며 면적은 약 614.31㎢로 대구 전체에서 가장 넓은 자치단체이다. 남동쪽 경계에 팔공산(1,193m)이 높이 솟아 그 여파가 군 내부 곳곳으로 뻗어, 지형 대부분이 산악 또는 구릉성 산지를 이루는 전형적인 산간 고장이다. 군의 젖줄인 위천은 낙동강의 지류로서 여러 골짜기에서 흘러내린 물을 모아 서쪽으로 빠져나가며, 사창천 등 지류들이 좁은 하곡을 따라 농경지를 적신다. 지질은 대부분 경상 누층군으로 이루어져 있으며, 화산과 청화산 등 크고 작은 봉우리들이 병풍처럼 둘러싸 분지형 들녘을 형성한다. 산지가 많고 도시 개발 압력이 낮아 하늘이 맑고 별이 잘 보이는 청정 환경을 자랑하며, 화산산성 전망대는 해발 약 700m 고지에서 일출과 일몰, 밤하늘을 감상하는 명소로 꼽힌다.</p>
+      </section>
+      <section id="r-characteristics">
+        <h2>지역 특징</h2>
+        <p>군위군의 인구는 2023년 기준 약 2만 3,515명으로, 1966년 8만여 명에 이르던 정점에서 크게 줄어든 대표적인 인구 소멸 위기 지역이다. 넓은 면적에 견주어 인구 밀도가 매우 낮은 농촌형 자치단체로, 지역 경제의 근간은 사과·자두·복숭아 같은 과수와 벼농사를 중심으로 한 농업이 차지한다. 특히 팔공산 자락의 일교차 큰 청정 기후에서 재배되는 군위 사과는 당도와 품질이 뛰어나기로 이름이 높고, 사과 종합 가공·유통 기반을 갖춘 농공단지가 조성되어 부가가치를 높이고 있다. 대구 편입을 계기로 대구경북통합신공항 건설이라는 대형 국책사업이 추진되면서, 오랜 인구 감소를 반전시킬 성장 동력으로 기대를 모으고 있다. 아울러 삼국유사와 팔공산 삼존석굴을 앞세운 역사·문화 관광이 새로운 지역 브랜드로 부상하며, 조용한 농촌에서 관광·물류 거점으로 변모를 꾀하는 전환기에 놓여 있다.</p>
+      </section>
+      <section id="r-landmarks">
+        <h2>대표 명소</h2>
+        <ul>
+          <li><strong>군위 아미타여래삼존 석굴(제2석굴암)</strong> — 팔공산 자락 해발 약 600m 절벽의 천연 동굴에 조성된 석굴사원으로, 7세기 후반에서 700년경 만들어진 것으로 추정된다. 경주 석굴암보다 앞선 원조 격 석굴로 평가받아 &#x27;제2석굴암&#x27;으로 불려 왔으며, 1962년 국보로 지정되어 대구광역시 유일의 국보로 남아 있다.</li>
+          <li><strong>화본역과 화본마을</strong> — 1938년 개통해 1930년대 간이역의 모습을 고스란히 간직한 곳으로, 네티즌이 뽑은 &#x27;전국에서 가장 아름다운 간이역&#x27;에 선정된 바 있다. 2024년 중앙선 복선전철화로 공식 폐역되었으나, 옛 역사와 급수탑, 추억의 벽화 골목으로 꾸며진 화본마을이 향수를 자극하는 관광 명소로 남아 있다.</li>
+          <li><strong>인각사</strong> — 삼국유사면 화북리에 자리한 고찰로, 고려 후기 승려 일연이 이곳에 머물며 《삼국유사》를 집필·완성하고 입적한 유서 깊은 절이다. 절터는 사적으로 지정되어 있으며 보각국사 탑과 비 등 귀중한 문화재가 전해져 &#x27;삼국유사의 고장&#x27; 군위를 상징하는 핵심 명소다.</li>
+          <li><strong>한밤마을 돌담길</strong> — 부계면 대율리에 형성된 부계 홍씨 집성 전통마을로, 집집마다 이어진 돌담 풍경이 아름다워 &#x27;내륙의 제주도&#x27;라 불린다. 950년경 홍란이 이주해 일족이 번창하였고 1390년 홍로에 의해 &#x27;대율&#x27;로 이름이 바뀌었으며, 상매댁과 솔밭이 어우러진 고즈넉한 돌담길이 전국에서 손꼽히는 산책 명소로 사랑받는다.</li>
+        </ul>
+      </section>
+      <section id="r-heritage">
+        <h2>문화유산·문화시설</h2>
+        <ul>
+          <li><strong>인각사지(사적)</strong> — 일연이 《삼국유사》를 완성한 인각사의 옛 절터로 국가 사적으로 지정되어 있다. 발굴을 통해 통일신라~고려 시대의 건물지와 유물이 확인되어 삼국유사 저술의 역사적 현장으로서 학술·문화적 가치가 크다.</li>
+          <li><strong>군위 인각사 보각국사 탑 및 비(보물)</strong> — 인각사에 전하는 일연 스님을 기리는 승탑과 탑비로, 고려 시대 불교 석조미술과 금석문 연구의 귀중한 자료다. 마모가 진행되었으나 일연의 생애와 삼국유사 편찬 사실을 뒷받침하는 사료로서 보물로 지정되어 있다.</li>
+          <li><strong>군위 지보사 삼층석탑 및 대율리 석조여래입상(보물)</strong> — 지보사 삼층석탑은 통일신라 석탑 양식을 잘 보여 주는 보물이며, 부계면 대율리의 석조여래입상은 높이 약 2.65m의 당당한 불상으로 역시 보물로 지정되어 있다. 군위에 남은 신라·고려 불교문화의 깊이를 보여 주는 대표 석조문화재다.</li>
+          <li><strong>삼국유사 테마파크와 일연공원</strong> — 삼국유사면 일대에 조성된 역사 테마 공간으로, 《삼국유사》 속 설화와 일연의 발자취를 다양한 콘텐츠로 체험할 수 있다. 군위군은 2028년까지 일연공원 일대에 체류형 관광거점을 확충하며 삼국유사를 지역 대표 문화 브랜드로 키우고 있다.</li>
+        </ul>
+      </section>
+      <section id="r-nature">
+        <h2>자연·휴식</h2>
+        <ul>
+          <li><strong>장곡자연휴양림</strong> — 삼국유사면 장곡휴양길에 자리한 산림 휴양시설로, 울창한 숲과 계곡을 배경으로 숲속의 집·산책로·삼림욕장을 갖추었다. 팔공산 권역의 맑은 공기 속에서 가족 단위 휴식과 산림 치유를 즐기기 좋은 대표적인 자연 쉼터다.</li>
+          <li><strong>화산산성 전망대</strong> — 해발 약 700m 고지에 자리한 청정 전망 명소로, 빨간 풍차와 액자 포토존이 어우러져 드라이브 코스로 인기가 높다. 탁 트인 능선 너머로 펼쳐지는 일출·일몰과 별밤 풍경이 아름다워 감성 힐링 여행지로 손꼽힌다.</li>
+          <li><strong>김수환 추기경 사랑과 나눔공원</strong> — 군위 출신인 김수환 추기경의 생가를 복원하고 그의 사랑과 나눔 정신을 기리기 위해 조성한 공원으로, 2018년 개장하였다. 소박한 초가 생가와 십자가의 길, 평화의 숲, 입구의 옹기 가마터가 어우러져 종교와 관계없이 사색과 산책을 즐길 수 있는 열린 쉼터다.</li>
+          <li><strong>군위댐과 위천 물길</strong> — 삼국유사면 일대에 자리한 군위댐은 맑은 호수와 주변 산세가 어우러진 드라이브·산책 명소로, 인각사·삼국유사 테마파크와 연계된 관광 코스를 이룬다. 낙동강 지류인 위천의 물길을 따라 이어지는 골짜기 풍경이 계절마다 색다른 정취를 선사한다.</li>
+        </ul>
+      </section>
+      <section id="r-transport">
+        <h2>교통</h2>
+        <p>군위군은 대구와 안동·중부 내륙을 잇는 교통의 길목에 자리해 여러 고속도로와 국도가 지난다. 중앙고속도로가 남북으로 관통하며 군위 분기점과 군위 나들목을 통해 대구·안동 방면 이동이 편리하고, 상주영천고속도로가 동서로 지나 상주·영천 방면과 연결된다. 일반 국도로는 5호선이 군을 세로로 가로질러 인근 시·군을 잇는 간선 역할을 한다. 철도는 2024년 12월 중앙선 복선전철화가 이루어지며 의흥면 파전리 방향으로 노선이 이설되어, 오랜 세월 지역을 지켜 온 우보역·화본역 등이 폐역되고 신설 군위역으로 통합되었다. 무엇보다 의성군과 공동으로 유치한 대구경북통합신공항이 군위 지역에 들어서면서, 향후 항공 교통과 물류의 중심지로 크게 도약할 전망이다. 군내 이동은 군위교통이 운행하는 버스가 담당하며 원패스 교통카드 체계가 갖추어져 있다.</p>
+      </section>
+      <section id="r-symbols">
+        <h2>지역 상징</h2>
+        <ul class="symbols">
+          <li>구화(꽃): 개나리</li>
+          <li>구목(나무): 느티나무</li>
+          <li>구조(새): 왜가리</li>
+        </ul>
+      </section>
+      <section id="r-faq">
+        <h2>자주 묻는 질문</h2>
+        <div class="faq">
+          <details>
+            <summary>군위군은 언제 대구광역시에 편입되었나요?</summary>
+            <p>군위군은 2023년 7월 1일 경상북도에서 대구광역시로 편입되었습니다. 대구경북통합신공항을 의성군과 공동으로 유치하는 조건 아래 이루어진 편입으로, 군위군은 현재 광역시에 속한 전국에서 유일한 군(郡)입니다.</p>
+          </details>
+          <details>
+            <summary>군위가 &#x27;삼국유사의 고장&#x27;으로 불리는 이유는 무엇인가요?</summary>
+            <p>고려 후기 승려 일연이 삼국유사면 화북리의 인각사에 머무르며 《삼국유사》를 완성하고 이곳에서 입적하였기 때문입니다. 이를 기려 2021년에는 고로면을 삼국유사면으로 개칭하였고, 삼국유사 테마파크와 일연공원 등 관련 관광 인프라가 조성되어 있습니다.</p>
+          </details>
+          <details>
+            <summary>군위의 대표 명소로 어디를 추천하나요?</summary>
+            <p>국보인 아미타여래삼존 석굴(제2석굴암), 1930년대 정취가 남은 화본역, 부계면 대율리 한밤마을 돌담길, 일연의 인각사, 화산산성 풍차 전망대 등이 대표적입니다. 영화 《리틀 포레스트》 촬영지도 조용한 시골 감성 여행지로 인기가 높습니다.</p>
+          </details>
+          <details>
+            <summary>군위에서 대구 유일의 국보는 무엇인가요?</summary>
+            <p>팔공산 자락 절벽 천연 동굴에 조성된 &#x27;군위 아미타여래삼존 석굴&#x27;이 대구광역시 유일의 국보입니다. 경주 석굴암보다 앞서 만들어진 원조 격 석굴로 평가받아 &#x27;제2석굴암&#x27;으로도 불립니다.</p>
+          </details>
+          <details>
+            <summary>군위의 대표 특산물은 무엇인가요?</summary>
+            <p>팔공산 자락의 큰 일교차와 청정 기후에서 재배되는 군위 사과가 대표 특산물로, 당도와 품질이 뛰어납니다. 이 밖에 자두·복숭아 등 과수와 쌀이 유명하며, 사과 종합 가공·유통 기반을 갖춘 농공단지도 조성되어 있습니다.</p>
+          </details>
+          <details>
+            <summary>군위군의 상징(군화·군목·군조)은 무엇인가요?</summary>
+            <p>군위군의 군화는 개나리, 군목은 느티나무, 군조는 왜가리입니다. 넓은 산간 농촌 환경과 청정 자연을 상징하는 상징물로 지정되어 있습니다.</p>
+          </details>
+        </div>
+      </section>
+      <section id="r-links">
+        <h2>공식 링크</h2>
+        <ul>
+          <li><a href="https://www.gunwi.go.kr/" rel="noopener">군위군청 공식 홈페이지</a></li>
+          <li><a href="http://www.cardinalkim-park.org/" rel="noopener">김수환 추기경 사랑과 나눔공원</a></li>
+          <li><a href="https://janggok.foresttrip.go.kr/" rel="noopener">군위 장곡자연휴양림</a></li>
+        </ul>
+      </section>
+      <section id="r-github">
+        <h2>GitHub</h2>
+        <ul>
+          <li><a href="https://github.com/kr-daegu-gunwi" rel="noopener">GitHub 조직: kr-daegu-gunwi</a></li>
+          <li><a href="https://github.com/kr-daegu-gunwi/kr-daegu-gunwi.github.io" rel="noopener">이 사이트 저장소</a></li>
+        </ul>
+      </section>
+      <section id="r-sources">
+        <h2>출처</h2>
+        <ul class="sources">
+          <li><a href="https://ko.wikipedia.org/wiki/군위군" rel="noopener">군위군 - 위키백과, 우리 모두의 백과사전</a> (조회 2026-07-08)</li>
+          <li><a href="https://ko.wikipedia.org/wiki/군위_아미타여래삼존_석굴" rel="noopener">군위 아미타여래삼존 석굴 - 위키백과</a> (조회 2026-07-08)</li>
+          <li><a href="https://www.seoul.co.kr/news/plan/2026/05/06/20260506022002" rel="noopener">삼존석굴·팔공산 품은 군위… &#x27;대구 역사문화관광 1번지&#x27; 뜬다 - 서울신문</a> (조회 2026-07-08)</li>
+          <li><a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=d868591f-3e90-4300-a069-89eb2f8a06ab" rel="noopener">김수환 추기경 사랑과 나눔공원 - 대한민국 구석구석</a> (조회 2026-07-08)</li>
+          <li><a href="https://janggok.foresttrip.go.kr/" rel="noopener">군위 장곡자연휴양림 공식 홈페이지</a> (조회 2026-07-08)</li>
+        </ul>
+      </section>
+    </div>
+  </main>
   <aside class="cg-sponsors" aria-label="후원 파트너 상세">
     <p class="cg-spon-head"><span class="cg-ad">AD</span> 후원 파트너 <small>이 링크는 광고이며 편집상의 추천이 아닙니다 (rel=&quot;sponsored&quot;).</small></p>
     <ul class="cg-spon-grid">
